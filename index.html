@@ -7,6 +7,7 @@
 	<!-- Important - do not remove or rename! -->
 	<link rel="stylesheet" href="style.css">
 	<!-- Change theme here -->
+	<script src="google-code-prettify/prettify.js"></script>
 	<script type="text/javascript">
 		window.addEvent('domready', function () {
 			document.id('total-slides').set("text", pik.slides.length);
@@ -17,7 +18,7 @@
 		});
 	</script>
 </head>
-<body>
+<body onload="prettyPrint()">
 
 <div id="header"></div>
 
@@ -151,9 +152,73 @@
 <div class="pik-slide">
 	<div class="center">
 		<div class="center">
-			<h1 class="between-title">Thanks for your attention!</h1>
+			<h1 class="between-title">Autoloading / Abhängigkeiten</h1>
 		</div>
 	</div>
+</div>
+
+<div class="pik-slide">
+	<h2>Autoloading</h2>
+	<ul>
+		<li>PHP verfügt über kein Paketsystem</li>
+		<li>Abhängigkeiten von anderen Dateien müssen manuell gelöst werden</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>Autoloading</h2>
+	<ul>
+		<li>Frühere Lösungen:</li>
+	</ul>
+	<pre style="width: 16em; margin: auto" class="prettyprint">&lt;?php
+include(&quot;../file1.php&quot;);
+include(&quot;../file2.php&quot;);</pre>
+<br>
+<pre style="width: 19em; margin: auto" class="prettyprint">&lt;?php
+require_once(&quot;../file1.php&quot;);
+require_once(&quot;../file2.php&quot;);</pre>
+</div>
+
+<div class="pik-slide">
+	<h2>Autoloading</h2>
+	<ul>
+		<li>Frühere Lösungen:</li>
+	</ul>
+	<pre style="width: 16em; margin: auto; opacity: 0.4" class="prettyprint">&lt;?php
+include(&quot;../file1.php&quot;);
+include(&quot;../file2.php&quot;);</pre>
+<br>
+<pre style="width: 19em; margin: auto; opacity: 0.4" class="prettyprint">&lt;?php
+require_once(&quot;../file1.php&quot;);
+require_once(&quot;../file2.php&quot;);</pre>
+<img src="assets/meh.svg" style="position: absolute; width: 14em; top: 5em; left: 50%; margin-left: -7em; opacity: 0.95">
+</div>
+
+<div class="pik-slide">
+	<h2>Autoloading</h2>
+	<ul>
+		<li>Neu in PHP 5.3
+			<ul>
+				<li>Namespaces</li>
+				<li>Autoloading</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>Autoloading</h2>
+	<ul>
+		<li>Neu in PHP 5.3
+			<ul>
+				<li>Namespaces</li>
+			</ul>
+		</li>
+	</ul>
+	<pre style="width: 20em; margin: auto;" class="prettyprint">&lt;?php
+namespace "Mammoot\MeinRaum";</pre><br>
+<pre style="width: 20em; margin: auto;" class="prettyprint">&lt;?php
+use "Mammoot\MeinRaum";</pre>
 </div>
 
 <div id="footer">
@@ -171,4 +236,3 @@
 
 </body>
 </html>
-3
