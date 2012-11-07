@@ -263,10 +263,29 @@ function __autoload($classname) {
 <div class="pik-slide">
 	<h2>Abhängigkeiten</h2>
 	<ul>
-		<li>Jedes Symfony2 Projekt ist abhängig von externen Bundles</li>
-		<li>Externe Bundles müssen leicht aktualisierbar sein (Bugfixes?)</li>
-		<li>Externe Bundles dürfen sich nicht mit eigener Geschäftslogik mischen</li>
+		<li>Jedes Symfony2 Projekt ist abhängig von externen Bundles.
+			<ul>
+				<li>Externe Bundles müssen leicht integrierbar / desintegrierbar sein.</li>
+				<li>Externe Bundles müssen leicht aktualisierbar sein (Bugfixes?).</li>
+				<li>Externe Bundles dürfen sich nicht mit eigener Geschäftslogik mischen.</li>
+			</ul>
+		</li>
 	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>Abhängigkeiten</h2>
+	<ul>
+		<li>Alle Abhängigkeiten werden im deps-file eingetragen.</li>
+		<li>Jedes Bundle wird mit seiner GitHub Adresse hinterlegt:</li>
+	</ul>
+	<pre style="width: 39em; font-size: 0.7em; margin: auto;" class="prettyprint">[SensioFrameworkExtraBundle]
+    git=http://github.com/sensio/SensioFrameworkExtraBundle.git
+    target=/bundles/Sensio/Bundle/FrameworkExtraBundle
+    version=origin/2.0</pre>
+    <ul>
+    	<li>Definierte Abhängigkeiten können mit dem Kommando<br><code>php bin/vendors install</code> gepflegt werden.</li>
+    </ul>
 </div>
 
 <div id="footer">
