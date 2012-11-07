@@ -221,6 +221,54 @@ namespace "Mammoot\MeinRaum";</pre><br>
 use "Mammoot\MeinRaum";</pre>
 </div>
 
+<div class="pik-slide">
+	<h2>Autoloading</h2>
+	<ul>
+		<li>Neu in PHP 5.3
+			<ul>
+				<li>Autoloading</li>
+			</ul>
+		</li>
+	</ul>
+	<pre style="width: 30em; margin: auto;" class="prettyprint">&lt;?php
+function __autoload($classname) {
+	if (...)
+		require $classname.'Bla'.'php';
+	else
+		require $classname.'php';
+}</pre>
+</div>
+
+<div class="pik-slide">
+	<h2>Autoloading</h2>
+	<ul>
+		<li>Symfony2 kombiniert beides
+			<ul>
+				<li>Der Namespace eines Bundles wird einmalig im Autoloader angemeldet.</li>
+				<li>Anschließend reicht z.B.<br><code>use "Mammoot\MeinRaum\Controller";</code> aus um die Controller aus MeinRaum zu importieren.</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2 style="position: absolute">Unterm Rock</h2>
+	<div class="center">
+		<div class="center">
+			<img src="assets/file-structure.jpg" style="width: 27em;">
+		</div>
+	</div>
+</div>
+
+<div class="pik-slide">
+	<h2>Abhängigkeiten</h2>
+	<ul>
+		<li>Jedes Symfony2 Projekt ist abhängig von externen Bundles</li>
+		<li>Externe Bundles müssen leicht aktualisierbar sein (Bugfixes?)</li>
+		<li>Externe Bundles dürfen sich nicht mit eigener Geschäftslogik mischen</li>
+	</ul>
+</div>
+
 <div id="footer">
 	<table>
 		<tr>
