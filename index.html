@@ -412,7 +412,7 @@ function __autoload($classname) {
 	<ul>
 		<li>Um assozierte Objekte abzurufen können die Getter-Methoden des übergeordneten Objektes genutzt werden:
 			<ul>
-				<li><code>$motherShip->getShuttles();</code></li>
+				<li><code class="prettyprint">$motherShip->getShuttles();</code></li>
 				<li>gibt eine Liste aller assoziierten Shuttles zurück.</li>
 			</ul>
 		</li>
@@ -449,13 +449,26 @@ $repo->findByName("U.S.S. Mammoot"); //Get ship with name
 	<pre style="width: 20em; margin: auto;" class="prettyprint">$ship->setName("U.S.S. Mam");
 $em->persist($ship);
 $em->flush();</pre>
-<ul>
-	<li>Erst der flush()-Befehl sendet alle Änderungen an die Datenbank.</li>
-</ul>
+	<ul>
+		<li>Erst der flush()-Befehl sendet alle Änderungen an die Datenbank.</li>
+	</ul>
 </div>
 
 <div class="pik-slide">
-	<h2></h2>
+	<div class="center">
+		<div class="center">
+			<h1 class="between-title">Service Layer</h1>
+		</div>
+	</div>
+</div>
+
+<div class="pik-slide">
+	<h2>Service Layer</h2>
+	<ul>
+		<li>Einzelne Klassen lassen sich als Service anmelden und werden so über den ServiceContainer zugänglich gemacht.</li>
+		<li>Beispiel: Der Doctrine EntityManager wird in Controllern als Service injeziert.</li>
+		<li>Jede Art von Programmlogik die nicht in M, V, oder C gehört ist in der Regel ein Service.</li>
+	</ul>
 </div>
 
 <div class="pik-slide">
@@ -472,6 +485,28 @@ $em->flush();</pre>
 		<li>Symfony2 bringt die hauseigene Templatesprache 'Twig' mit.</li>
 		<li>Neben Twig kann auch jede andere Templateengine verwendet werden.</li>
 		<li>Auch Templates in reinem PHP zu schreiben ist möglich.</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>Twig</h2>
+	<ul>
+		<li>Vom Controller aus kann das Rendern einer View ausgelöst werden.</li>
+		<li>Der Output der Templateengine kann entweder als String angenommen werden, oder direkt als Resonse an den Client geschickt werden.</li>
+		<li>Dem Template können im Renderbefehl optional Variablen übergeben werden.</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>Twig</h2>
+	<ul>
+		<li>Besonderheiten von Twig:
+			<ul>
+				<li>Templates können vererbt werden.</li>
+				<li>Teilbereiche eines Templates können als Block definiert werden.</li>
+				<li>Erbende Templates können diese Blöcke überschreiben.</li>
+			</ul>
+		</li>
 	</ul>
 </div>
 
