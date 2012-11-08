@@ -321,6 +321,15 @@ function __autoload($classname) {
 </div>
 
 <div class="pik-slide">
+	<h2 style="position: absolute">Entity Generator</h2>
+	<div class="center">
+		<div class="center">
+			<img src="assets/generator.jpg" style="width: 27em;">
+		</div>
+	</div>
+</div>
+
+<div class="pik-slide">
 	<div class="center">
 		<div class="center">
 			<h1 class="between-title">Symfony2 von innen</h1>
@@ -338,8 +347,115 @@ function __autoload($classname) {
 </div>
 
 <div class="pik-slide">
-	<h2>Controller</h2>
-	
+	<div class="center">
+		<div class="center">
+			<h1 class="between-title">Code</h1>
+		</div>
+	</div>
+</div>
+
+<div class="pik-slide">
+	<div class="center">
+		<div class="center">
+			<h1 class="between-title">ORM - Persistenzebene</h1>
+		</div>
+	</div>
+</div>
+
+<div class="pik-slide">
+	<h2>ORM - Persistenzebene</h2>
+	<ul>
+		<li>ORM: Object Relational Mapping!</li>
+		<li>Zugriff auf Persistenzebene wird durch PHP-Objekte gekapselt.</li>
+		<li>Statt selbst bspw. SQL-Queries abzusetzen, wird nur mit Datenobjekten gearbeitet.</li>
+		<li>Das Persistenzmedium bleibt dabei komplett austauschbar.</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>ORM - Die Brücke zwischen PHP und Datenbank</h2>
+	<ul>
+		<li>In PHP gibt es zwei etablierte ORM Bibliotheken:
+			<ul>
+				<li>Dotrine</li>
+				<li>Propl</li>
+			</ul>
+		</li>
+		<li>Beide können in Symfony2 verwendet werden.</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>ORM - Entities</h2>
+	<ul>
+		<li>Um Datensätze zu repräsentieren werden POPOs (Plain Old PHP Objects) verwendet.</li>
+		<li>Die Klassen dieser Objekte werden als Entities bezeichnet.</li>
+		<li>Eine Entity ist lediglich die Schablone eines Datenobjektes und enthält keine Geschäftslogik!</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>ORM - Associations</h2>
+	<ul>
+		<li>Entities können mit anderen Entities assoziert sein:
+			<ul>
+				<li>OneToOne</li>
+				<li>OneToMany</li>
+				<li>ManyToMany</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>ORM - Associations</h2>
+	<ul>
+		<li>Um assozierte Objekte abzurufen können die Getter-Methoden des übergeordneten Objektes genutzt werden:
+			<ul>
+				<li><code>$motherShip->getShuttles();</code></li>
+				<li>gibt eine Liste aller assoziierten Shuttles zurück.</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="pik-slide">
+	<h2>ORM - Repositories</h2>
+	<ul>
+		<li>Entities die nicht über eine Assoziation gefunden werden können, werden über ihr Repository abgerufen werden.</li>
+		<li>Diese Repositories lassen sich über einen EntityManager-Service instanziieren:</li>
+	</ul>
+	<pre style="width: 39em; font-size: 0.7em; margin: auto;" class="prettyprint">$em = $this->getDoctrine()->getEntityManager();
+$repo = $em->getRepository('UfomammootUfoBundle:Mothership');</pre>
+</div>
+
+<div class="pik-slide">
+	<h2>ORM - Repositories</h2>
+	<ul>
+		<li>Das Repository stellt find-Methoden bereit um bestimmte Objekte zu finden:</li>
+	</ul>
+	<pre style="width: 39em; font-size: 0.7em; margin: auto;" class="prettyprint">$repo->findAll() //Get all ships
+$repo->find(17); //Get ship with ID 17
+$repo->findByName("U.S.S. Mammoot"); //Get ship with name
+                                       "U.S.S. Mammoot"</pre>
+</div>
+
+<div class="pik-slide">
+	<h2>ORM - Arbeiten mit Entities</h2>
+	<ul>
+		<li>Ein Datenobjekt kann wie jedes Objekt über seine Getter und Setter verändert werden.</li>
+		<li>Anschließend kann es dem Entity-Manager zum persistieren übergeben werden.</li>
+	</ul>
+	<pre style="width: 20em; margin: auto;" class="prettyprint">$ship->setName("U.S.S. Mam");
+$em->persist($ship);
+$em->flush();</pre>
+<ul>
+	<li>Erst der flush()-Befehl sendet alle Änderungen an die Datenbank.</li>
+</ul>
+</div>
+
+<div class="pik-slide">
+	<h2></h2>
 </div>
 
 <div class="pik-slide">
